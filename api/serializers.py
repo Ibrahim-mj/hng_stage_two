@@ -1,7 +1,9 @@
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
-from .models import Person
 from django.core import validators
+from bleach import clean
+
+from .models import Person
 
 class PersonSerializer(serializers.ModelSerializer):
     name = serializers.CharField(max_length=100)
@@ -17,19 +19,19 @@ class PersonSerializer(serializers.ModelSerializer):
     def validate_name(self, value):
         if not value.isalpha():
             raise serializers.ValidationError('Name must be letters only')
-        return value
+        return clean(value)
 
     def validate_age(self, value):
         if not value >= 1:
             raise serializers.ValidationError('Age can not be less than 1')
         if not isinstance(value, int):
             raise serializers.ValidationError('Age must be a number')
-        return value
+        return clean(value)
     
     def validate_occupation(self, value):
         if not value.isalpha():
             raise serializers.ValidationError('Occupation must be letters only')
-        return value
+        return clean(value)
     
     class Meta:
         model = Person
