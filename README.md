@@ -107,7 +107,7 @@ None
 
 **Response format:**
 ```json
-{ "name": "John Doe", "age": 30, "email": "johndoe@example.com", "occupation": "Pharmacist" }
+{ "id": 7, "name": "John Doe", "age": 30, "email": "johndoe@example.com", "occupation": "Pharmacist" }
 ```
 ### `POST /api/`
 
