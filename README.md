@@ -97,25 +97,49 @@ None
 
 **Request format:**
 ```json 
-{ "name": "John Doe", "age": 30, "email": "johndoe@example.com", "occupation": "Pharmacist" }
+{
+  "id": 7,
+  "name": "John Doe",
+  "age": 30,
+  "email": "johndoe@example.com",
+  "occupation": "Pharmacist"
+}
 ```
 Note that the name and occupation fields must be strings, the age field must be int and the email must be valid. name or email must not exist in the database prior. else the system rejects the POST, PULL, or PATCH request
 **Response format:**
 
 ```json
-{ "name": "John Doe", "age": 30, "email": "johndoe@example.com", "occupation": "Pharmacist" }
+{
+  "id": 7,
+  "name": "John Doe",
+  "age": 30,
+  "email": "johndoe@example.com",
+  "occupation": "Pharmacist"
+}
 ```
 
 ### `PUT /api/<int:pk>`
 
 **Request format:**
 ```json
-{ "name": "John Doe", "age": 30, "email": "johndoe@example.com", "occupation": "Pharmacist" }
+{
+  "id": 7,
+  "name": "John Doe",
+  "age": 30,
+  "email": "johndoe@example.com",
+  "occupation": "Pharmacist"
+}
 ```
 
 **Response format:**
 ```json
-{ "name": "John Doe", "age": 30, "email": "johndoe@example.com", "occupation": "Pharmacist" }
+{
+  "id": 7,
+  "name": "John Doe",
+  "age": 30,
+  "email": "johndoe@example.com",
+  "occupation": "Pharmacist"
+}
 ```
 
 
@@ -149,10 +173,11 @@ url = 'https://devibrahim.pythonanywhere.com/api/'
 
 # Define the data for a new person
 data = {
-    'name': 'John Doe',
-    'age': 30,
-    'email': 'johndoe@example.com'
-    'occupation': 'Pharmacist'
+  "id": 7,
+  "name": "John Doe",
+  "age": 30,
+  "email": "johndoe@example.com",
+  "occupation": "Pharmacist"
 }
 
 # Send a POST request to create a new person
@@ -176,7 +201,8 @@ Example:
 should give a response like this:
 ```json
 {
-		"name": "Abdulwaaliy",
+		"id": 3,
+    "name": "Abdulwaaliy",
 		"age": 24,
 		"email": "waaliy@api.com",
 		"occupation": "pharmacist"
