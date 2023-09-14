@@ -78,8 +78,24 @@ None
 **Response format:**
 ```json
 #This can be sorted by name or occupation
-{ "name": "John Doe", "age": 30, "email": "johndoe@example.com", "occupation": "Pharmacist" }
-{ "name": "John Cole", "age": 50, "email": "johncole@example.com", "occupation": "Backend engineer" }
+
+[
+  {
+  "id": 7,
+  "name": "John Doe",
+  "age": 30,
+  "email": "johndoe@example.com",
+  "occupation": "Pharmacist"
+  },
+
+  {
+  "id": 7,
+  "name": "John Doe",
+  "age": 50,
+  "email": "johncole@example.com",
+  "occupation": "Backend engineer"
+  }
+]
 ```
 
 ### `GET /api/<int:pk>`
