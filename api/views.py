@@ -25,5 +25,8 @@ class PersonView(generics.ListCreateAPIView):
         return queryset
 
 class PersonDetailView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Person.objects.all()
     serializer_class = PersonSerializer
+
+    def get_queryset(self):
+        queryset = Person.objects.filter(pk=self.kwargs['pk'])
+        return queryset

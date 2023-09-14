@@ -6,6 +6,9 @@ from bleach import clean
 from .models import Person
 
 class PersonSerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField(
+        read_only=True,
+    )
     name = serializers.CharField(
         max_length=100, 
         validators=[
@@ -36,4 +39,4 @@ class PersonSerializer(serializers.ModelSerializer):
     )
     class Meta:
         model = Person
-        fields = ['name', 'age', 'email', 'occupation']
+        fields = ['id', 'name', 'age', 'email', 'occupation']
