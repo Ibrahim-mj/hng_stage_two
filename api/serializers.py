@@ -14,18 +14,21 @@ class PersonSerializer(serializers.ModelSerializer):
         ]
     )
     age = serializers.IntegerField(
+        required=False,
         validators=[
             validators.MinValueValidator(1, message='Age can not be less than 1'),
             validators.MaxValueValidator(150, message='Age can not be greater than 150')
         ]
     )
     email = serializers.EmailField(
+        required=False,
         validators=[
             validators.EmailValidator(),
             UniqueValidator(queryset=Person.objects.all(), message="Email already exists")
         ]
     )
     occupation = serializers.CharField(
+        required=False,
         max_length=100, 
         validators=[
             validators.RegexValidator(r'^[a-zA-Z ]+$', 'Occupation must be letters only')

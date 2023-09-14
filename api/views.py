@@ -10,6 +10,9 @@ class PersonView(generics.ListCreateAPIView):
     ordering_fields = ['name', 'occupation']
 
     def get_queryset(self):
+        """
+        Optionally restricts the returned response to a given user
+        """
         queryset = Person.objects.all()
         name = self.request.query_params.get('name')
         occupation = self.request.query_params.get('occupation')
